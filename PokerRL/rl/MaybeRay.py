@@ -33,14 +33,14 @@ class MaybeRay:
         assert self.runs_cluster
         ray.init(
             redis_address=redis_address,
-            redis_max_memory=min(10 ** 10, int(psutil.virtual_memory().total * 0.1)),
+            #redis_max_memory=min(10 ** 10, int(psutil.virtual_memory().total * 0.1)),
             object_store_memory=min(2 * (10 ** 10), int(psutil.virtual_memory().total * 0.4)),
         )
 
     def init_local(self):
         if self.runs_distributed:
             ray.init(
-                redis_max_memory=min(10 ** 10, int(psutil.virtual_memory().total * 0.1)),
+                #redis_max_memory=min(10 ** 10, int(psutil.virtual_memory().total * 0.1)),
                 object_store_memory=min(2 * (10 ** 10), int(psutil.virtual_memory().total * 0.4)),
             )
 
